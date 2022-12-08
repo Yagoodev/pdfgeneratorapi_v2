@@ -4,7 +4,7 @@
   "main": "./src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node --watch ./src/index.js"
+    "build": "node --watch ./src/index.js"
   },
   "dependencies": {
     "base64-stream": "^1.0.0",
