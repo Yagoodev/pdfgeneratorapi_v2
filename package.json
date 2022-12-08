@@ -1,10 +1,10 @@
 {
   "name": "pdfgenerator",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "node --watch ./src/index.js"
+    "dev": "node --watch index.js"
   },
   "dependencies": {
     "base64-stream": "^1.0.0",
