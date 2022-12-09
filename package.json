@@ -4,12 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "node --watch index.js"
+    "dev": "nodemon ./index.js"
   },
   "dependencies": {
     "base64-stream": "^1.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "nodemon": "^2.0.20",
     "pdfkit": "^0.13.0"
   },
   "type": "module"

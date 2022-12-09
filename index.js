@@ -12,7 +12,7 @@ app.post("/gerar_pdf", async (req, res) => {
 
   const paramsPDF = req.body;
 
-  const docPDF = await createPDF(paramsPDF);
+  const docPDF = await createPDF([paramsPDF]);
 
   return res.json({
     base64PDF: docPDF
