@@ -30,10 +30,10 @@ function paramsDataValidate(dataPDF) {
       objeto,
       datalog,
       produtos: {
-        item: dataPDF.item,
+        item: dataPDF.produtos.item,
         conteudo,
-        quantidade: dataPDF.quantidade,
-        valor: dataPDF.valor
+        quantidade: dataPDF.produtos.quantidade,
+        valor: dataPDF.produtos.valor
       },
       remetente,
       destinatario
