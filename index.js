@@ -12,15 +12,15 @@ app.use(express.json());
 app.post("/gerar_pdf", async (req, res) => {
 
   const paramsPDF = req.body;
-  // const paramsPDFValidated = paramsDataValidate(paramsPDF);
+  const paramsPDFValidated = paramsDataValidate(paramsPDF);
 
-  // if(!paramsPDFValidated.success) {
-  //   return res.status(500).json({
-  //     message: paramsPDFValidated.message
-  //   })
-  // }
+  if(!paramsPDFValidated.success) {
+    return res.status(500).json({
+      message: paramsPDFValidated.message
+    })
+  }
 
-  const docPDF = await createPDF([paramsPDF]);
+  const docPDF = await createPDF([paramsPDFValidated.data]);
   return res.json({
     base64PDF: docPDF
   });

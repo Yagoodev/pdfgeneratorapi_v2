@@ -14,6 +14,8 @@ function paramsDataValidate(dataPDF) {
 
   const conteudo = dataPDF.produtos.conteudo != "" ? dataPDF.produtos.conteudo : objeto;
 
+  console.log(conteudo);
+
   const remetente = addressValidate(dataPDF.remetente);
   const destinatario = addressValidate(dataPDF.destinatario);
 
@@ -43,12 +45,13 @@ function paramsDataValidate(dataPDF) {
 
 function addressValidate(address) {
   const nome = address.nome != "" ? address.nome : "";
-  const endereco = address.endereco != "" ? address.endereco : "";
+  const bairro = address.bairro != "" ? address.bairro : "";
+  const endereco = address.endereco != "" ? `${address.endereco}, ${bairro}` : "";
   const cidade = address.cidade != "" ? address.cidade : "";
   const cep = address.cep != "" ? address.cep : "";
   const uf = address.uf != "" ? address.uf : "";
 
-  const isMissingArgument = (nome == "" | endereco == "" | cidade == "" | cep == "" | uf == "") == 1 ? true : false;
+  const isMissingArgument = (nome == "" | endereco == "" | cidade == "" | cep == "" | uf == "" | bairro == "") == 1 ? true : false;
 
   if (isMissingArgument) {
     return {
