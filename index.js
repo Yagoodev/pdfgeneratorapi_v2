@@ -31,7 +31,7 @@ app.post("/gerar_pdf", async (req, res) => {
 app.post("/etiqueta/drops/gerar", async (req, res) => {
 
   const paramsPDF = req.body;
-  
+
   await translateHTMLToPNG(paramsPDF);
 
   return res.json({
