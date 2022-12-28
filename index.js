@@ -37,6 +37,7 @@ app.post("/etiqueta/drops/gerar", async (req, res) => {
   return res.json({
     status: "200"
   });
+
 });
 
 app.get("/etiqueta/drops/listar", async (req, res) => {
@@ -48,6 +49,7 @@ app.get("/etiqueta/drops/listar", async (req, res) => {
   return res.json({
     base64: dropsLabel
   });
+
 });
 
 app.listen(3000);
