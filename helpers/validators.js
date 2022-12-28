@@ -14,8 +14,6 @@ function paramsDataValidate(dataPDF) {
 
   const conteudo = dataPDF.produtos.conteudo != "" ? dataPDF.produtos.conteudo : objeto;
 
-  console.log(conteudo);
-
   const remetente = addressValidate(dataPDF.remetente);
   const destinatario = addressValidate(dataPDF.destinatario);
 

@@ -1,3 +1,5 @@
+import { Base64Encode } from "base64-stream";
+
 function getCurrentDate() {
   const newDate = new Date();
   const currentDate = `${newDate.today()} ${newDate.timeNow()}`;
@@ -42,7 +44,21 @@ function getMonthName(month) {
   }
 }
 
+async function converteToBase64(doc) {
+
+  let base64 = "";
+
+  const stream = doc.pipe(new Base64Encode());
+
+  await stream.on('data', chunk => {
+    base64 += chunk;
+  });
+
+  return base64;
+}
+
 export {
   getIndividualDate,
-  getCurrentDate
+  getCurrentDate,
+  converteToBase64
 }
