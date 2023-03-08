@@ -1,5 +1,6 @@
 import { createPDF } from "./lib/pdfkit.js";
 import { translateHTMLToPNG, convertToBase64 } from "./lib/htmlToPng.js";
+import { Correios } from "./lib/correios.js";
 import { paramsDataValidate } from "./helpers/validators.js";
 
 import express from "express";
@@ -48,6 +49,18 @@ app.get("/etiqueta/drops/listar", async (req, res) => {
 
   return res.json({
     base64: dropsLabel
+  });
+
+});
+
+app.post("/etiqueta/correios/gerar", async (req, res) => {
+  
+  // const paramsPDF = req.body;
+
+  const correiosLabel = await Correios();
+
+  return res.json({
+    base64: correiosLabel
   });
 
 });
