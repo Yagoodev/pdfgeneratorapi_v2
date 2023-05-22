@@ -1,5 +1,5 @@
-import { createPDF } from "./lib/pdfkit.js";
-import { translateHTMLToPNG, convertToBase64 } from "./lib/htmlToPng.js";
+import { DeclaracaoConteudo } from "./lib/declaracao_conteudo.js";
+import { DropsLabel, convertToBase64 } from "./lib/drops.js";
 import { Correios } from "./lib/correios.js";
 import { paramsDataValidate } from "./helpers/validators.js";
 
@@ -8,7 +8,7 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors({ origin: "0.0.0.0" }))
+app.use(cors({ origin: "0.0.0.0" }));
 app.use(express.json());
 
 app.post("/gerar_pdf", async (req, res) => {
@@ -22,7 +22,7 @@ app.post("/gerar_pdf", async (req, res) => {
     })
   }
 
-  const docPDF = await createPDF([paramsPDFValidated.data]);
+  const docPDF = await DeclaracaoConteudo([paramsPDFValidated.data]);
 
   return res.json({
     base64PDF: docPDF
@@ -33,7 +33,7 @@ app.post("/etiqueta/drops/gerar", async (req, res) => {
 
   const paramsPDF = req.body;
 
-  await translateHTMLToPNG(paramsPDF);
+  await DropsLabel(paramsPDF);
 
   return res.json({
     status: "200"
