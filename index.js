@@ -8,7 +8,7 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors({ origin: "0.0.0.0" }));
+app.use(cors());
 app.use(express.json());
 
 app.post("/gerar_pdf", async (req, res) => {
