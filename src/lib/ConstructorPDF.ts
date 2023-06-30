@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 import PDFDocument from "pdfkit";
 
 import { Base64Encode } from "base64-stream";
@@ -67,6 +70,12 @@ export default class ConstructorPDF {
 
   public endDoc() {
     this.doc.end();
+  }
+
+  public writeImageFile(codigoObjeto: string) {
+    const doc = this.doc;
+
+    doc.pipe(fs.createWriteStream(path.join(`temp/${codigoObjeto}.pdf`)));
   }
 
   public async gerateBase64() {

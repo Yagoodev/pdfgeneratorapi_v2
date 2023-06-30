@@ -8,7 +8,7 @@ export interface TextInterface {
 }
 
 export interface ImageInterface {
-  imagePath?: string;
+  imagePath?: any;
   position?: [number, number];
   options?: PDFKit.Mixins.ImageOption
 }
